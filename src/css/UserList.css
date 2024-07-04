@@ -1,0 +1,37 @@
+/* src/components/UserList.css */
+
+.user-list {
+    text-align: center;
+  }
+  
+  .user-list h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .user-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+  }
+  
+  .user-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .user-list td:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .user-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+    margin: 5px;
+  }
+  

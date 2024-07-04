@@ -1,0 +1,42 @@
+/* src/components/AlbumList.css */
+
+.album-list {
+    text-align: center;
+  }
+  
+  .album-list h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .album-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+  }
+  
+  .album-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .album-list td:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .album-square {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: #e0e0e0;
+    margin: 5px;
+  }
+  
+  .album-list button {
+    margin-bottom: 10px;
+  }
+  

@@ -1,0 +1,41 @@
+/* src/components/PhotoList.css */
+
+.photo-list {
+    text-align: center;
+  }
+  
+  .photo-list h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .photo-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+  }
+  
+  .photo-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .photo-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: #e0e0e0;
+    margin: 5px;
+  }
+  
+  .photo-list img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .photo-list button {
+    margin-bottom: 10px;
+  }
+  
