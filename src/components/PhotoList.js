@@ -1,7 +1,6 @@
-// src/components/PhotoList.js
-
 import React from 'react';
 import '../css/PhotoList.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const PhotoList = ({ photos, onBack, albumName }) => {
   const rows = [];
@@ -9,10 +8,11 @@ const PhotoList = ({ photos, onBack, albumName }) => {
     const rowPhotos = photos.slice(i, i + 4);
     const row = (
       <tr key={i}>
-        {rowPhotos.map((photo, index) => (
-          <td key={index}>
+        {rowPhotos.map((photo) => (
+          <td key={photo.id}>
             <div className="photo-square">
-              <img src={photo} alt={`Photo ${index + 1}`} />
+              <img src={photo.thumbnailUrl} alt={photo.title} />
+              <p>{photo.title}</p>
             </div>
           </td>
         ))}
@@ -24,7 +24,7 @@ const PhotoList = ({ photos, onBack, albumName }) => {
   return (
     <div className="photo-list">
       <h2>{albumName}</h2>
-      <button onClick={onBack}>Go Back</button>
+      <button onClick={onBack} className="back-button">Go Back</button>
       <table>
         <tbody>
           {rows}

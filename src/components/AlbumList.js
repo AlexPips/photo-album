@@ -1,35 +1,26 @@
-// src/components/AlbumList.js
-
 import React from 'react';
 import '../css/AlbumList.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const AlbumList = ({ albums, onSelectAlbum, onBack, username }) => {
-  const rows = [];
-  for (let i = 0; i < albums.length; i += 4) {
-    const rowAlbums = albums.slice(i, i + 4);
-    const row = (
-      <tr key={i}>
-        {rowAlbums.map(album => (
-          <td key={album.id} onClick={() => onSelectAlbum(album.id)}>
-            <div className="album-square">
-              {album.name} ({album.photoCount} photos)
-            </div>
-          </td>
-        ))}
-      </tr>
-    );
-    rows.push(row);
-  }
-
+const AlbumList = ({ albums, onSelectAlbum, onBack, userName }) => {
   return (
     <div className="album-list">
-      <h2>{username} Albums</h2>
-      <button onClick={onBack}>Go Back</button>
-      <table>
-        <tbody>
-          {rows}
-        </tbody>
-      </table>
+      <h2>{userName}'s Albums</h2>
+      <button onClick={onBack} className="back-button">
+        <i className="fas fa-arrow-left"></i> Go Back
+      </button>
+      <div className="albums-container">
+        {albums.map((album) => (
+          <div
+            key={album.id}
+            className="album-square"
+            onClick={() => onSelectAlbum(album.id)}
+          >
+            <div className="album-title">{album.title}</div>
+            <p className="album-photo-count">{album.photoCount} photos</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

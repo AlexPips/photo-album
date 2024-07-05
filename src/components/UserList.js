@@ -1,10 +1,8 @@
-// src/components/UserList.js
-
 import React from 'react';
 import '../css/UserList.css';
+import defaultAvatar from '../images/user-default.png'; // Importing the default avatar image
 
 const UserList = ({ users, onSelectUser }) => {
-  // Assuming each user has an 'id' and 'username' property
   const rows = [];
   for (let i = 0; i < users.length; i += 6) {
     const rowUsers = users.slice(i, i + 6);
@@ -13,7 +11,12 @@ const UserList = ({ users, onSelectUser }) => {
         {rowUsers.map(user => (
           <td key={user.id} onClick={() => onSelectUser(user.id)}>
             <div className="user-square">
-              {user.username}
+              <img
+                src={user.avatarUrl || defaultAvatar}
+                alt={`${user.name}'s avatar`}
+                className="user-avatar"
+              />
+              {user.name}
             </div>
           </td>
         ))}
@@ -24,7 +27,7 @@ const UserList = ({ users, onSelectUser }) => {
 
   return (
     <div className="user-list">
-      <h2>USERS OVERVIEW</h2>
+      <h2>Users Overview</h2>
       <table>
         <tbody>
           {rows}

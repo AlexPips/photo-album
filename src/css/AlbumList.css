@@ -1,42 +1,87 @@
-/* src/components/AlbumList.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 .album-list {
-    text-align: center;
-  }
-  
-  .album-list h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  .album-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: auto;
-  }
-  
-  .album-list td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .album-list td:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .album-square {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    background-color: #e0e0e0;
-    margin: 5px;
-  }
-  
-  .album-list button {
-    margin-bottom: 10px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.album-list h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.albums-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Four albums per row */
+  gap: 20px;
+  justify-items: center;
+  padding: 10px;
+}
+
+.album-square {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 200px; /* Ensure a max width for better alignment */
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-square:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+
+.album-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.album-photo-count {
+  font-size: 14px;
+  color: #777;
+}
+
+.back-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+}
+
+.back-button i {
+  margin-right: 8px;
+}

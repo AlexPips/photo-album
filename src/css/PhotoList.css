@@ -1,41 +1,78 @@
-/* src/components/PhotoList.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 .photo-list {
-    text-align: center;
-  }
-  
-  .photo-list h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  .photo-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: auto;
-  }
-  
-  .photo-list td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .photo-square {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    background-color: #e0e0e0;
-    margin: 5px;
-  }
-  
-  .photo-list img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-  .photo-list button {
-    margin-bottom: 10px;
-  }
-  
+  padding: 20px;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.photo-list h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.photo-list button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.photo-list button:hover {
+  background-color: #2980b9;
+}
+
+.photo-list table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.photo-list td {
+  padding: 10px;
+  text-align: center;
+}
+
+.photo-square {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-square:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+
+.photo-square img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.photo-square p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  word-wrap: break-word;
+}

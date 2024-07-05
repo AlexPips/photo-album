@@ -1,37 +1,61 @@
-/* src/components/UserList.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 .user-list {
-    text-align: center;
-  }
-  
-  .user-list h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  .user-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: auto;
-  }
-  
-  .user-list td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .user-list td:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .user-square {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    background-color: #e0e0e0;
-    margin: 5px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.user-list h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.user-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.user-list td {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-list td:hover .user-square {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+
+.user-square {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 160px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  padding: 10px;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 30%;
+  margin-bottom: 10px;
+}
