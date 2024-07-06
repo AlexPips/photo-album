@@ -16,14 +16,18 @@ const App = () => {
     const fetchData = async () => {
       try {
         const [usersResponse, albumsResponse, photosResponse] = await Promise.all([
-          fetch('http://127.0.0.1:5000/users'),
-          fetch('http://127.0.0.1:5000/albums'),
-          fetch('http://127.0.0.1:5000/photos')
+          fetch('http://localhost:5000/users'),
+          fetch('http://localhost:5000/albums'),
+          fetch('http://localhost:5000/photos')
         ]);
 
         const usersData = await usersResponse.json();
         const albumsData = await albumsResponse.json();
         const photosData = await photosResponse.json();
+        // Debugging logs
+        console.log('Users Data:', usersData);
+        console.log('Albums Data:', albumsData);
+        console.log('Photos Data:', photosData);
 
         // Add photo count to each album
         const albumsWithPhotoCount = albumsData.map(album => ({
