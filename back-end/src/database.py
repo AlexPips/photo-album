@@ -81,27 +81,27 @@ class MySQLConnector:
         cursor.close()
         return result
     
-def executeBatchQuery(self, _query, _params):
-    result = ""
-    try:
-        cursor = self.connection.cursor()
-        if _params is not None:
-            cursor.executemany(_query, _params)
-        else:
-            cursor.execute(_query)
-        if _query.lower().startswith("select"):
-            result = cursor.fetchall()
-        else:
-            self.connection.commit()
-            if _query.lower().startswith("insert"):
-                result = cursor.lastrowid
+    def executeBatchQuery(self, _query, _params):
+        result = ""
+        try:
+            cursor = self.connection.cursor()
+            if _params is not None:
+                cursor.executemany(_query, _params)
             else:
-                result = None
-    except mysql.connector.Error as e:
-        print(f"MySQL Batch Query Error: {e}")
-    finally:
-        cursor.close()
-    return result
+                cursor.execute(_query)
+            if _query.lower().startswith("select"):
+                result = cursor.fetchall()
+            else:
+                self.connection.commit()
+                if _query.lower().startswith("insert"):
+                    result = cursor.lastrowid
+                else:
+                    result = None
+        except mysql.connector.Error as e:
+            print(f"MySQL Batch Query Error: {e}")
+        finally:
+            cursor.close()
+        return result
 
 def check_and_create_tables():
     queries = {

@@ -24,7 +24,6 @@ def get_users():
                         'phone': result[5],
                         'website': result[6],
                         'company': result[7]} for result in results]
-    
     return jsonify(users_with_keys)
 
 @app.route('/albums', methods=['GET'])
