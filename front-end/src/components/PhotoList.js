@@ -22,10 +22,10 @@ const PhotoList = ({ photos, onBack, albumName }) => {
 
   return (
     <div className="photo-list">
+      <h2>{albumName}</h2>
       <button onClick={onBack} className="back-button">
         <i className="fas fa-arrow-left"></i> Go Back
       </button>
-      <h2>{albumName}</h2>
       <div className="photos-container">
         {photos.slice(0, loadedPhotos).map((photo, index) => (
           <div
@@ -34,7 +34,7 @@ const PhotoList = ({ photos, onBack, albumName }) => {
             className="photo-square"
           >
             <img src={photo.thumbnailUrl} alt={photo.title} />
-            <p>{photo.title}</p>
+            <div className="photo-title">{photo.title}</div>
           </div>
         ))}
       </div>

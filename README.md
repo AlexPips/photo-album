@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Getting Started with Your App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this application, follow these steps:
 
-## Available Scripts
+1. **Start the Application with Docker Compose:**
+   - Make sure you have Docker installed on your system.
+   - Open your terminal and navigate to the project directory.
+   - Run the following command to start the Docker containers defined in `docker-compose.yml`:
+     ```
+     docker-compose up
+     ```
+   - This command will build the necessary containers and start the application.
 
-In the project directory, you can run:
+2. **Wait for the Containers to be Ready:**
+   - During startup, Docker will build the containers and start the services.
+   - Wait until you see the logs indicating that the Python Flask API is ready. The logs might show a message like:
+     ```
+     back-end   |  * Running on all addresses (0.0.0.0)
+     ```
 
-### `npm start`
+3. **Access the Application:**
+   - Once the Python Flask API is ready (as indicated in the logs), open your web browser.
+   - Type the following URL in the address bar:
+     ```
+     localhost:3000
+     ```
+   - This will direct you to the React application's user interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. **Explore the Application:**
+   - You should now be able to interact with the React app through your web browser.
+   - Explore the features and functionalities provided by the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. **Stopping the Application:**
+   - To stop the application and shut down the Docker containers, press `Ctrl + C` in the terminal where `docker-compose up` is running.
+   - Optionally, you can run `docker-compose down` to stop and remove the containers.
 
-### `npm test`
+6. **Additional Information:**
+   - **Front-end Service (React):**
+     - Exposed port: `3000`
+     - Dockerfile location: `./front-end/Dockerfile`
+     - Source code volume: `./front-end/src` mapped to `/app/src` in the container.
+     - Environment: `NODE_ENV=production`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - **Back-end Service (Python Flask API):**
+     - Exposed port: `5000`
+     - Dockerfile location: `./back-end/Dockerfile`
+     - Source code volume: `./back-end/src` mapped to `/app` in the container.
+     - Environment variables loaded from: `./.env` file.
 
-### `npm run build`
+   - **Database Service (MySQL):**
+     - Exposed port: `3306`
+     - Dockerfile location: `./database/Dockerfile`
+     - Persistent volume: `mysql-data` for MySQL data storage.
+     - Environment variables loaded from: `./.env` file.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7. **Troubleshooting:**
+   - If you encounter any issues during startup or while accessing the application, check the terminal logs for any error messages.
+   - Ensure that Docker is properly configured and running on your system.
+   - Verify that the necessary ports (3000 for React, 5000 for Flask API, and 3306 for MySQL) are not blocked by any firewall settings.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+That's it! You are now ready to use the application. Enjoy exploring!

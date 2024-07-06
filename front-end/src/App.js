@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import UserList from './components/UserList';
 import AlbumList from './components/AlbumList';
 import PhotoList from './components/PhotoList';
+import './css/App.css';
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -16,19 +17,19 @@ const App = () => {
     const fetchData = async () => {
       try {
         const [usersResponse, albumsResponse, photosResponse] = await Promise.all([
-          fetch('http://jsonplaceholder.typicode.com/users'),
-          fetch('http://jsonplaceholder.typicode.com/albums'),
-          fetch('http://jsonplaceholder.typicode.com/photos')
+          fetch('http://localhost:5000/users'),
+          fetch('http://localhost:5000/albums'),
+          fetch('http://localhost:5000/photos')
         ]);
 
         const usersData = await usersResponse.json();
         const albumsData = await albumsResponse.json();
         const photosData = await photosResponse.json();
-
         // Add photo count to each album
         const albumsWithPhotoCount = albumsData.map(album => ({
           ...album,
-          photoCount: photosData.filter(photo => photo.albumId === album.id).length
+          photoCount: photosData.filter(photo => photo.albumId === album.id).length,
+          thumbnailPhoto: photosData.filter(photo => photo.albumId === album.id).slice(0, 4)
         }));
 
         setUsers(usersData);

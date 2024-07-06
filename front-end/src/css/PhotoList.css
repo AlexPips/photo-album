@@ -1,0 +1,89 @@
+.photo-list {
+  text-align: center;
+  padding: 40px;
+  /* Increased padding */
+  background: rgba(255, 255, 255, 0.9);
+  /* Semi-transparent background */
+  color: #333;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  /* Increased margin */
+  max-width: 90vw;
+  /* Max width to cover more screen */
+}
+
+.photo-list h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #2c3e50;
+}
+
+.photos-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* Five photos per row */
+  gap: 20px;
+  justify-items: center;
+  padding: 10px;
+}
+
+.photo-square {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
+  /* Ensure a max width for better alignment */
+  height: 220px;
+  /* Increased height */
+  background: linear-gradient(135deg, #fff, #e6f7ff);
+  /* Gradient background */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  /* Increased padding */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-square:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #e6f7ff, #ccf2ff);
+  /* Gradient background on hover */
+}
+
+.photo-square img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.photo-square p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.photo-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limits the text to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.loading-message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}

@@ -5,10 +5,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const AlbumList = ({ albums, onSelectAlbum, onBack, userName }) => {
   return (
     <div className="album-list">
+      <h2>{userName}'s Albums</h2>
       <button onClick={onBack} className="back-button">
         <i className="fas fa-arrow-left"></i> Go Back
       </button>
-      <h2>{userName}'s Albums</h2>
       <div className="albums-container">
         {albums.map((album) => (
           <div
@@ -17,6 +17,16 @@ const AlbumList = ({ albums, onSelectAlbum, onBack, userName }) => {
             onClick={() => onSelectAlbum(album.id)}
           >
             <div className="album-title">{album.title}</div>
+            <div className="album-images">
+              {album.thumbnailPhoto.map((photo) => (
+                <img
+                  key={photo.id}
+                  src={photo.thumbnailUrl}
+                  alt={`Thumbnail ${photo.id}`}
+                  className="album-thumbnail"
+                />
+              ))}
+            </div>
             <p className="album-photo-count">{album.photoCount} photos</p>
           </div>
         ))}
