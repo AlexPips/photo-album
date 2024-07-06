@@ -59,11 +59,16 @@
 }
 
 .user-name {
-  font-size: 18px;
   /* Increased font size */
   font-weight: 500;
   color: #555;
   margin-top: 10px;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limits the text to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: center;
 }
 

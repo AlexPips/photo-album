@@ -11,6 +11,7 @@ body {
 
 .back-button {
     padding: 10px 20px;
+    margin-left: 10px;
     font-size: 16px;
     color: #fff;
     background-color: #3498db;

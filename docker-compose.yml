@@ -11,8 +11,7 @@ services:
     volumes:
       - ./front-end/src:/app/src
     environment:
-      # - NODE_ENV=production
-      - NODE_ENV=development
+      - NODE_ENV=production
     depends_on:
       - database
 

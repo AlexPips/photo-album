@@ -22,7 +22,7 @@
 
 .albums-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   /* Five albums per row */
   gap: 20px;
   justify-items: center;
@@ -58,14 +58,31 @@
 }
 
 .album-title {
-  font-size: 18px;
-  /* Increased font size */
   font-weight: 500;
   margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits the text to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: center;
 }
 
 .album-photo-count {
   font-size: 14px;
   color: #777;
+}
+
+
+.album-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for the images */
+  gap: 0; /* No gap between images */
+  margin-top: 10px;
+}
+
+.album-thumbnail {
+  width: 60px; /* Ensure the image takes full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px;
 }

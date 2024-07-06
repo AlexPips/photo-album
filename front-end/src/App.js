@@ -28,7 +28,8 @@ const App = () => {
         // Add photo count to each album
         const albumsWithPhotoCount = albumsData.map(album => ({
           ...album,
-          photoCount: photosData.filter(photo => photo.albumId === album.id).length
+          photoCount: photosData.filter(photo => photo.albumId === album.id).length,
+          thumbnailPhoto: photosData.filter(photo => photo.albumId === album.id).slice(0, 4)
         }));
 
         setUsers(usersData);
