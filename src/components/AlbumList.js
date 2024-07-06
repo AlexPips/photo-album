@@ -5,10 +5,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const AlbumList = ({ albums, onSelectAlbum, onBack, userName }) => {
   return (
     <div className="album-list">
-      <h2>{userName}'s Albums</h2>
       <button onClick={onBack} className="back-button">
         <i className="fas fa-arrow-left"></i> Go Back
       </button>
+      <h2>{userName}'s Albums</h2>
       <div className="albums-container">
         {albums.map((album) => (
           <div

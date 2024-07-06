@@ -2,36 +2,44 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('../images/background.jpg') no-repeat center center fixed; /* Background image */
+  background-size: cover; /* Cover the entire background */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full screen height */
+  max-width: 100vw; /* Full screen width */
+  align-items: center;
+  justify-content: center;
 }
 
 .user-list {
   text-align: center;
-  padding: 20px;
-  background-color: #fafafa;
+  padding: 40px; /* Increased padding */
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
   color: #333;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto; /* Increased margin */
+  max-width: 90vw; /* Max width to cover more screen */
 }
 
 .user-list h2 {
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: 32px; /* Increased font size */
   color: #2c3e50;
 }
 
-.user-list table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: auto;
-}
-
-.user-list td {
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Six users per row */
+  gap: 20px; /* Space between users */
+  justify-items: center;
   padding: 10px;
-  cursor: pointer;
-}
-
-.user-list td:hover .user-square {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9;
 }
 
 .user-square {
@@ -39,23 +47,35 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 160px;
-  background-color: #fff;
+  width: 100%;
+  max-width: 180px; /* Increased max width */
+  height: 220px; /* Increased height */
+  background: linear-gradient(135deg, #fff, #e6f7ff); /* Gradient background */
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+  padding: 20px; /* Increased padding */
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 16px;
+}
+
+.user-square:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #e6f7ff, #ccf2ff); /* Gradient background on hover */
+}
+
+.user-name {
+  font-size: 18px; /* Increased font size */
   font-weight: 500;
   color: #555;
-  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .user-avatar {
-  width: 80px;
-  height: 80px;
+  width: 100px; /* Increased width */
+  height: 100px; /* Increased height */
   border-radius: 30%;
   margin-bottom: 10px;
 }

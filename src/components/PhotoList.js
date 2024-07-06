@@ -1,35 +1,46 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import '../css/PhotoList.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const PhotoList = ({ photos, onBack, albumName }) => {
-  const rows = [];
-  for (let i = 0; i < photos.length; i += 4) {
-    const rowPhotos = photos.slice(i, i + 4);
-    const row = (
-      <tr key={i}>
-        {rowPhotos.map((photo) => (
-          <td key={photo.id}>
-            <div className="photo-square">
-              <img src={photo.thumbnailUrl} alt={photo.title} />
-              <p>{photo.title}</p>
-            </div>
-          </td>
-        ))}
-      </tr>
-    );
-    rows.push(row);
-  }
+  const [loadedPhotos, setLoadedPhotos] = useState(15); // Initial number of photos to load
+  const observer = useRef();
+
+  const lastPhotoElementRef = (node) => {
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadMorePhotos();
+      }
+    });
+    if (node) observer.current.observe(node);
+  };
+
+  const loadMorePhotos = () => {
+    setLoadedPhotos((prevLoadedPhotos) => prevLoadedPhotos + 15);
+  };
 
   return (
     <div className="photo-list">
+      <button onClick={onBack} className="back-button">
+        <i className="fas fa-arrow-left"></i> Go Back
+      </button>
       <h2>{albumName}</h2>
-      <button onClick={onBack} className="back-button">Go Back</button>
-      <table>
-        <tbody>
-          {rows}
-        </tbody>
-      </table>
+      <div className="photos-container">
+        {photos.slice(0, loadedPhotos).map((photo, index) => (
+          <div
+            key={photo.id}
+            ref={index === loadedPhotos - 1 ? lastPhotoElementRef : null}
+            className="photo-square"
+          >
+            <img src={photo.thumbnailUrl} alt={photo.title} />
+            <p>{photo.title}</p>
+          </div>
+        ))}
+      </div>
+      {loadedPhotos < photos.length && (
+        <p className="loading-message">Loading more photos...</p>
+      )}
     </div>
   );
 };
