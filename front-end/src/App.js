@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import UserList from './components/UserList';
 import AlbumList from './components/AlbumList';
 import PhotoList from './components/PhotoList';
+import './css/App.css';
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -24,11 +25,6 @@ const App = () => {
         const usersData = await usersResponse.json();
         const albumsData = await albumsResponse.json();
         const photosData = await photosResponse.json();
-        // Debugging logs
-        console.log('Users Data:', usersData);
-        console.log('Albums Data:', albumsData);
-        console.log('Photos Data:', photosData);
-
         // Add photo count to each album
         const albumsWithPhotoCount = albumsData.map(album => ({
           ...album,
