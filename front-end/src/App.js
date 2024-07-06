@@ -16,9 +16,9 @@ const App = () => {
     const fetchData = async () => {
       try {
         const [usersResponse, albumsResponse, photosResponse] = await Promise.all([
-          fetch('http://jsonplaceholder.typicode.com/users'),
-          fetch('http://jsonplaceholder.typicode.com/albums'),
-          fetch('http://jsonplaceholder.typicode.com/photos')
+          fetch('http://127.0.0.1:5000/users'),
+          fetch('http://127.0.0.1:5000/albums'),
+          fetch('http://127.0.0.1:5000/photos')
         ]);
 
         const usersData = await usersResponse.json();
