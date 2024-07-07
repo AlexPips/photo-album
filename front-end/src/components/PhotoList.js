@@ -22,7 +22,7 @@ const PhotoList = ({ photos, onBack, albumName }) => {
 
   return (
     <div className="photo-list">
-      <h2>{albumName}</h2>
+      <h2>{albumName}  Album</h2>
       <button onClick={onBack} className="back-button">
         <i className="fas fa-arrow-left"></i> Go Back
       </button>
